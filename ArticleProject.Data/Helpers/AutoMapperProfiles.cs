@@ -1,4 +1,4 @@
-﻿using ArticleProject.Data.Dto;
+﻿using ArticleProject.Data.Dtos;
 using ArticleProject.Data.Entity;
 using AutoMapper;
 using System;
@@ -12,10 +12,20 @@ namespace ArticleProject.Data.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<Comment, CommentDto>();
+            CreateMap<Image, ImageDto>();
             CreateMap<Post, PostDto>()
                 .ForMember(dest => dest.CategoryName, opt =>
                 {
                     opt.MapFrom(src => src.Category.Title);
+                })
+                .ForMember(dest => dest.Comments, opt =>
+                {
+                    opt.MapFrom(src => src.Comments);
+                })
+                .ForMember(dest => dest.Images, opt =>
+                {
+                    opt.MapFrom(src => src.Images);
                 });
         }
     }

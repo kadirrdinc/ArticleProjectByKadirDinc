@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ArticleProject.Api.Models;
-using ArticleProject.Data.Dto;
+using ArticleProject.Data.Dtos;
 using ArticleProject.Data.Entity;
 using ArticleProject.Service;
 using AutoMapper;
@@ -39,11 +39,12 @@ namespace ArticleProject.Api.Controllers
         //    return _postService.GetAlls();
         //}
 
+        //TODO: AutoMapper kullanarak oluşturulmuş DTO
         [Route("Index")]
         public IActionResult Index()
         {
             var posts = _postService.GetAll();
-            var postDto = _mapper.Map<List<PostDto>>(posts);
+            var postDto = _mapper.Map<IEnumerable<PostDto>>(posts);
             return Ok(postDto);
         }
 

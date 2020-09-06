@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArticleProject.Data.Dto
+namespace ArticleProject.Data.Dtos
 {
     public class PostDto
     {

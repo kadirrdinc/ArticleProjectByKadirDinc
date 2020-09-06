@@ -1,5 +1,4 @@
 ﻿using ArticleProject.Core.Repository;
-using ArticleProject.Data.Dto;
 using ArticleProject.Data.Dtos;
 using ArticleProject.Data.Entity;
 using System;
@@ -55,7 +54,8 @@ namespace ArticleProject.Service
 
         public IEnumerable<Post> GetAll()
         {
-            return _repository.GetAll();
+            var all = _repository.Include(x => x.Category,x=>x.Comments, x => x.Images).AsEnumerable();
+            return all;
         }
 
         public IQueryable<Post> GetAlls()

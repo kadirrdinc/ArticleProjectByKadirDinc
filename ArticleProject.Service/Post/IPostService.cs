@@ -1,4 +1,4 @@
-﻿using ArticleProject.Data.Dto;
+﻿using ArticleProject.Data.Dtos;
 using ArticleProject.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
